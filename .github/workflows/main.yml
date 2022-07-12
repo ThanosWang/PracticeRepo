@@ -81,7 +81,6 @@ jobs:
         run: |
           python3 -m venv venv
           . venv/bin/activate
-          pip install requests
           pip install -r requirements.txt
       - name: Check added files
         run: |
