@@ -1,5 +1,5 @@
 
-import os, sys, json,requests
+import os, sys, json
 
 if len(sys.argv) == 1:
     sys.exit()
