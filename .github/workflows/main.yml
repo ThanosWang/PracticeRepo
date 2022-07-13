@@ -77,14 +77,12 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: '3.8'
-      - name: Install Independencies
+      - name: Install Independencies and run the test
         run: |
           python3 -m venv venv
           . venv/bin/activate
           pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Check added files
-        run: |
           python metadata_upload_test.py ${{steps.files.outputs.added}}
 
 
