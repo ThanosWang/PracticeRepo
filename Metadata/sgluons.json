@@ -3,7 +3,7 @@
   "Paper_id": "123456",
   "Keywords": "Higgs",
   "Model name": "sgluons",
-  "Model Doi": "10.5281/zenodo.6821562",
+  "Model Doi": "zenodo",
   "All Particles": {
     "G0": 250,
     "G-": -251,
