@@ -8,7 +8,7 @@ import json
 if sys.version_info.major ==3:
     raw_input = input
 
-g = Github('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')
+g = Github('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')
 
 repo = g.get_repo("ThanosWang/PracticeRepo")
 
