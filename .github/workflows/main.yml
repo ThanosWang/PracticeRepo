@@ -85,3 +85,17 @@ jobs:
           pip install -r requirements.txt
           python metadata_upload_test.py ${{steps.files.outputs.added}}
 
+  merge:
+    needs: check_added_files
+    name: merge
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v2
+    - name: merge
+      uses: mtanzi/action-automerge@v1
+      id: merge
+      with:
+        github_token: ${{ secrets.Access_Token }}
+        source: 'upload'
+        target: 'main' 
