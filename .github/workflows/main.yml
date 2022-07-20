@@ -86,7 +86,7 @@ jobs:
           python metadata_upload_test.py ${{steps.files.outputs.added}}
 
   merge:
-    needs: check_added_files
+    needs: [No_modified_files,no_renamed_files,no_removed_files,check_added_files]
     name: merge
     runs-on: ubuntu-latest
     steps:
