@@ -84,4 +84,17 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
           python metadata_upload_test.py ${{steps.files.outputs.added}}
+          
+  automerge:
+    runs-on: ubuntu-latest
+    needs: check_added_files
+    steps:
+      - uses: reitermarkus/automerge@v2
+        with:
+          token: ${{ secrets.Access_Token }}
+          merge-method: rebase
+          do-not-merge-labels: never-merge
+          required-labels: automerge
+          pull-request: ${{ github.event.inputs.pull-request }}
+          dry-run: true
 
