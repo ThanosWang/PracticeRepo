@@ -1,6 +1,6 @@
 name: Check new uploaded metadata
 
-on: pull_request
+on: [pull_request,create]
 
 jobs:
   No_modified_files:
