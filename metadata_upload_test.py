@@ -26,15 +26,12 @@ else:
         assert newfile[i]
     
     # Check contents in Author
+    all_contact = []
     for i in newfile['Author']:
-        assert i['affiliation']
         assert i['name']
-
-    
-    # Check if Doi exists
-    url = 'https://doi.org/' + newfile['Model Doi']
-    zenodo_webpage = requests.get(url)
-    assert zenodo_webpage.status_code < 400
+        if 'contact' in i:
+           all_contact.append(i['contact']) 
+    assert all_contact != []
 
     # Check model related contents
     for i in Neccessary_Model_related_Keys:
@@ -78,6 +75,13 @@ else:
                         existing_dic[i] = existingfile[i]
                     if new_dic == existing_dic:
                         raise Exception('Your new uploaded metadata may be the same as %s.' %(jsonfile))
+    
+    # Check if Doi exists
+    # Wait for 5 minutes for DOI paga
+    time.stop(300)
+    url = 'https://doi.org/' + newfile['Model Doi']
+    zenodo_webpage = requests.get(url)
+    assert zenodo_webpage.status_code < 400
 
     print('You have successfully upload metadata for your model!')
         
