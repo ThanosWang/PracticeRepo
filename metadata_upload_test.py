@@ -76,12 +76,6 @@ else:
                     if new_dic == existing_dic:
                         raise Exception('Your new uploaded metadata may be the same as %s.' %(jsonfile))
     
-    # Check if Doi exists
-    # Wait for 5 minutes for DOI paga
-    time.stop(300)
-    url = 'https://doi.org/' + newfile['Model Doi']
-    zenodo_webpage = requests.get(url)
-    assert zenodo_webpage.status_code < 400
 
     print('You have successfully upload metadata for your model!')
         
