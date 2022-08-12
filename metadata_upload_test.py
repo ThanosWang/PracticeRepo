@@ -10,7 +10,7 @@ else:
     File_list = All_added_files.split(',')
     for file in File_list:
         newmetadata = file.split('/')[-1]
-        path = os.getcwd(file))
+        path = os.getcwd(file)
         print(path)
         os.chdir(path)
         filelist = os.listdir()
