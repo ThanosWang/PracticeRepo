@@ -9,8 +9,10 @@ else:
     All_added_files = sys.argv[1]
     File_list = All_added_files.split(',')
     for file in File_list:
+        print(file)
         newmetadata = file.split('/')[-1]
         path = os.path.realpath(file)
+        print(path)
         os.chdir(path)
         filelist = os.listdir()
 
