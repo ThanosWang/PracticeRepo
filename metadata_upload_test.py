@@ -8,6 +8,7 @@ else:
     # Get into the metadata folder and find the new uploaded metadata file
     All_added_files = sys.argv[1]
     File_list = All_added_files.split(',')
+    DOI_list = []
     os.chdir('/home/runner/work/PracticeRepo/PracticeRepo/Metadata')
     for file in File_list:
         newmetadata = file.split('/')[-1]
@@ -77,6 +78,9 @@ else:
                         if new_dic == existing_dic:
                             if newfile['Model Version'] == existingfile['Model Version']:
                                 raise Exception('Your new uploaded metadata may be the same as %s.' %(jsonfile))
-
+        
+        DOI_list.append(newfile['Model Doi'])
+        
+    print(DOI_list)    
     print('You have successfully upload metadata for your model!')
         
