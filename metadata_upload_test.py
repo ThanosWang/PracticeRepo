@@ -10,7 +10,8 @@ else:
     File_list = All_added_files.split(',')
     for file in File_list:
         newmetadata = file.split('/')[-1]
-        os.chdir('Metadata')
+        path = os.sys.dirname(file)
+        os.chdir(path)
         filelist = os.listdir()
 
         # List of keys in metadata file
