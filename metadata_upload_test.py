@@ -8,10 +8,9 @@ else:
     # Get into the metadata folder and find the new uploaded metadata file
     All_added_files = sys.argv[1]
     File_list = All_added_files.split(',')
+    os.chdir('/home/runner/work/PracticeRepo/PracticeRepo/Metadata')
     for file in File_list:
         newmetadata = file.split('/')[-1]
-        path = os.path.dirname(os.path.realpath(file))
-        os.chdir(path)
         filelist = os.listdir()
 
         # List of keys in metadata file
@@ -78,13 +77,6 @@ else:
                         if new_dic == existing_dic:
                             if newfile['Model Version'] == existingfile['Model Version']:
                                 raise Exception('Your new uploaded metadata may be the same as %s.' %(jsonfile))
-
-        # Check if Doi exists
-        # Wait for 5 minutes for DOI paga
-        time.sleep(300)
-        url = 'https://doi.org/' + newfile['Model Doi']
-        zenodo_webpage = requests.get(url)
-        assert zenodo_webpage.status_code < 400
 
     print('You have successfully upload metadata for your model!')
         
