@@ -8,10 +8,9 @@ else:
     # Get into the metadata folder and find the new uploaded metadata file
     All_added_files = sys.argv[1]
     File_list = All_added_files.split(',')
+    os.chdir('/home/runner/work/PracticeRepo/PracticeRepo/Metadata')
     for file in File_list:
         newmetadata = file.split('/')[-1]
-        path = os.path.dirname(os.path.realpath(file))
-        os.chdir(path)
         filelist = os.listdir()
 
         # List of keys in metadata file
