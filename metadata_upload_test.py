@@ -110,13 +110,5 @@ else:
     # Check if all DOIs unique
     assert len(DOI_list) == len(set(DOI_list))
 
-    # Check if Doi exists
-    # Wait for 5 minutes for DOI page
-    time.sleep(300)
-    for i in DOI_list:
-        url = 'https://doi.org/' + i
-        zenodo_webpage = requests.get(url)
-        assert zenodo_webpage.status_code < 400
-
     print('You have successfully upload metadata for your model!')
         
