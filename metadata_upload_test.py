@@ -10,7 +10,7 @@ else:
     All_added_files = sys.argv[1]
     File_list = All_added_files.split(',')
     DOI_list = []
-    os.chdir('/home/runner/work/UFOMetadata/UFOMetadata/Metadata')
+    os.chdir('/home/runner/work/PracticeRepo/PracticeRepo/Metadata')
 
     regex = r'[^@]+@[^@]+\.[^@]+'
 
