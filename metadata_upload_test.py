@@ -10,7 +10,7 @@ else:
     All_added_files = sys.argv[1]
     File_list = All_added_files.split(',')
     DOI_list = []
-    os.chdir('/home/runner/work/UFOMetadata/UFOMetadata/Metadata')
+    os.chdir('/home/runner/work/PracticeRepo/PracticeRepo/Metadata')
 
     regex = r'[^@]+@[^@]+\.[^@]+'
 
@@ -32,11 +32,11 @@ else:
             assert newfile[i]
 
         try:
-            assert file['Author']
+            assert newfile['Author']
         except:
             raise Exception(colored('"Author" field does not exist in metadata', 'red'))
         all_contact = []
-        for i in file['Author']:
+        for i in newfile['Author']:
             try:
                 assert i['name'].strip()
             except:
